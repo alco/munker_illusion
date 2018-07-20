@@ -66,10 +66,14 @@ function animationStep(dt) {
         circle.x += circle.xDirection * circle.speed * Math.cos(circle.angle) * dt;
         circle.y += circle.yDirection * circle.speed * Math.sin(circle.angle) * dt;
 
-        if (circle.x < 0 || circle.x > CANVAS_WIDTH) {
+        if (circle.x - CIRCLE_RADIUS < 0 || circle.x + CIRCLE_RADIUS > CANVAS_WIDTH) {
+            circle.x = Math.max(circle.x, CIRCLE_RADIUS);
+            circle.x = Math.min(circle.x, CANVAS_WIDTH - CIRCLE_RADIUS);
             circle.xDirection = -circle.xDirection;
         }
-        if (circle.y < 0 || circle.y > CANVAS_HEIGHT) {
+        if (circle.y - CIRCLE_RADIUS < 0 || circle.y + CIRCLE_RADIUS > CANVAS_HEIGHT) {
+            circle.y = Math.max(circle.y, CIRCLE_RADIUS);
+            circle.y = Math.min(circle.y, CANVAS_HEIGHT - CIRCLE_RADIUS);
             circle.yDirection = -circle.yDirection;
         }
     }
