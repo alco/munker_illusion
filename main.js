@@ -38,7 +38,7 @@ function initCanvas() {
             angle: Math.random() * 2 * Math.PI,
             xDirection: 1,
             yDirection: 1,
-            speed: .1 + Math.random() * .5
+            speed: .05 + Math.random() * .3
         });
     }
 
