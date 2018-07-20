@@ -6,7 +6,7 @@ const FG_COLOR = "rgb(253, 250, 85)";
 const CIRCLE_COLOR = "rgb(200, 105, 45)";
 
 const STRIPE_HEIGHT = 10;
-const NUM_CIRCLES = 5;
+const NUM_CIRCLES = 6;
 const CIRCLE_RADIUS = 80;
 
 let ctx, t0;
@@ -86,13 +86,13 @@ function redrawScene() {
     clip(
         ctx,
         (ctx) => addStripes(ctx, 0),
-        (ctx) => drawCircles(ctx, circles, 0, Math.floor(NUM_CIRCLES / 2))
+        (ctx) => drawCircles(ctx, circles, 0, Math.floor(NUM_CIRCLES / 2) - 1)
     );
 
     clip(
         ctx,
         (ctx) => addStripes(ctx, STRIPE_HEIGHT),
-        (ctx) => drawCircles(ctx, circles, Math.floor(NUM_CIRCLES / 2) + 1, NUM_CIRCLES - 1)
+        (ctx) => drawCircles(ctx, circles, Math.floor(NUM_CIRCLES / 2), NUM_CIRCLES - 1)
     );
 }
 
